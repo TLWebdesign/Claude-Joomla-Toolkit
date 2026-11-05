@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.5.1 (2026-11-05)
+
+- Session start hook: in a project linked to a Joomla site it tells Claude which site that is and copies the helpers again after a plugin update, so `joomla-toolkit install` no longer has to be run by hand. In other projects it exits at once without output.
+
 ## 0.5.0 (2026-11-05)
 
 First public release.

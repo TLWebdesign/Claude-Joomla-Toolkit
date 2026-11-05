@@ -13,6 +13,7 @@ A Claude Code plugin that connects a project to its live Joomla website through 
 | `/joomla-toolkit:tours` | Builds guided tours ("Take a tour") for the client in their own language, installs them in the site database over SSH and walks through every step with a test account. Pairs with the manual: tour 3 and chapter 3 cover the same task. |
 | `joomla-fields.mjs` | `list`, `get` and `set` custom field values of articles. The MCP server sets field values itself; the helper remains for reading the values that apply to one article. |
 | `joomla-check.mjs` | Read-only check of the token, the API user and the MCP server. |
+| Session start hook | In a project linked to a site, tells Claude which site that is and refreshes the helpers after a plugin update. Silent in every other project. |
 
 ## Install
 
@@ -57,6 +58,8 @@ Each project only gets:
 - `.claude/joomla-site.json` with the alias and URL
 - `.claude/settings.local.json` entries that allow the read and plan tools (permission grants and writes keep asking); the file is added to `.gitignore`
 - a section in `AGENTS.md` between `<!-- joomla-toolkit:start -->` and `<!-- joomla-toolkit:end -->`
+
+The plugin has one hook, on session start. It looks for `.claude/joomla-site.json` in the project (or a parent folder) and exits at once when there is none. In a linked project it adds one line of context with the site alias and URL, copies the helpers to `~/.config/joomla-mcp/bin` again when their version stamp differs from the plugin version, and mentions when the site or its token is missing on this machine. It reads nothing else, never contacts the site, and never blocks a session.
 
 Because every project connects to the endpoint of its own site, a Claude session in one project can never reach another site. The server acts as the API user, so Joomla's permissions apply, and every write needs a grant that you confirm with an acknowledgement phrase; grants are stored on the site. Tokens never live in the project folder, so they cannot end up in a project's git repository, and the skills never ask for a token or a password in the conversation.
 
