@@ -1,0 +1,20 @@
+{
+  "name": "joomla-toolkit",
+  "version": "0.5.0",
+  "description": "Connect Claude Code to a live Joomla website through the JoomEngine MCP package: guided setup, a safe write workflow with the quirks found on live sites, a health check, illustrated client manuals and guided tours.",
+  "author": {
+    "name": "TLWebdesign",
+    "email": "info@tlwebdesign.nl"
+  },
+  "repository": "https://github.com/TLWebdesign/Claude-Joomla-Toolkit",
+  "license": "GPL-2.0-or-later",
+  "keywords": [
+    "joomla",
+    "mcp",
+    "cms",
+    "joomengine",
+    "manual",
+    "guided-tours"
+  ],
+  "homepage": "https://github.com/TLWebdesign/Claude-Joomla-Toolkit"
+}

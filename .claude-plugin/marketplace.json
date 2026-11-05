@@ -1,0 +1,15 @@
+{
+  "name": "tlwebdesign",
+  "description": "Claude Code plugins by TLWebdesign.",
+  "owner": {
+    "name": "TLWebdesign",
+    "email": "info@tlwebdesign.nl"
+  },
+  "plugins": [
+    {
+      "name": "joomla-toolkit",
+      "source": "./",
+      "description": "Connect Claude Code to a live Joomla website through the JoomEngine MCP package: guided setup, a safe write workflow with the quirks found on live sites, a health check, illustrated client manuals and guided tours."
+    }
+  ]
+}

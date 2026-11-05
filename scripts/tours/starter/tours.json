@@ -1,0 +1,30 @@
+{
+  "_comment": "Guided tours for this site, in the client's language. node tours.mjs validate | check | install | remove. Step type: next | redirect | interactive; interactive_type: submit | text | other | button | checkbox_radio | select. Targets are plain CSS. The optional test object tells test-tours.mjs what to do on a step: fill, select (option label) or choose (fancy-select option text).",
+  "prefix": "mysite-",
+  "ssh": "account@host",
+  "root": "domains/example.com/public_html",
+  "createdBy": 0,
+  "tours": [
+    {
+      "uid": "mysite-welcome",
+      "ordering": -10,
+      "title": "1. Welcome: finding your way around",
+      "description": "<p>A short introduction: where are your texts and your photos?</p>",
+      "extensions": ["com_cpanel", "com_content"],
+      "url": "administrator/index.php",
+      "steps": [
+        { "title": "Articles", "target": ".quickicon a[href*=\"view=articles\"]", "position": "bottom",
+          "description": "<p>Every text on your website is an <strong>article</strong>. You find them here.</p>" },
+        { "title": "Media", "target": ".quickicon a[href*=\"com_media\"]", "position": "bottom",
+          "description": "<p>All your photos live here.</p>" },
+        { "title": "To your articles", "target": ".quickicon a[href*=\"view=articles\"]", "position": "bottom",
+          "type": "interactive", "interactive_type": "button",
+          "description": "<p>Click <strong>Articles</strong> to continue.</p>" },
+        { "title": "Search", "target": "#filter_search", "position": "bottom", "url": "administrator/index.php?option=com_content&view=articles",
+          "description": "<p>Type a word from the title and press Enter.</p>" },
+        { "title": "Done!", "target": "", "url": "administrator/index.php?option=com_content&view=articles",
+          "description": "<p>Start the next tour from <strong>Take a tour</strong>.</p>" }
+      ]
+    }
+  ]
+}
